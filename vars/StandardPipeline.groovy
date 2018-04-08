@@ -15,7 +15,6 @@ def call(body) {
                 }
                 stage ('Build') {
                      
-                    bat "nuget restore ${config.projectName}.sln"
 		            bat "\"${tool 'MSBuild'}\" ${config.projectName}.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
                 }
                 stage ('Tests') {
